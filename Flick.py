@@ -8,7 +8,7 @@ import paho.mqtt.client as mqtt
 some_value = 5000
 
 def message(publisher, value):
-    client = paho.Client()
+    client = mqtt.Client()
     client.connect("mqtt.unixweb.de",1883,60)
     client.publish(publisher, value)
     client.disconnect()
@@ -50,7 +50,7 @@ def touch(position):
     global touchtxt
     touchtxt = position
 
-def main(stdscr):
+def main():
     global xyztxt
     global flicktxt
     global airwheeltxt
@@ -105,4 +105,4 @@ def main(stdscr):
 
         time.sleep(0.1)
 
-wrapper(main)
+main()
